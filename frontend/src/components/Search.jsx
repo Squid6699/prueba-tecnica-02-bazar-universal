@@ -4,6 +4,7 @@ import './../css/search.css'
 function Search(){
 
     const [search, setSearch] = useState("");
+    const [products, setProducts] = useState([])
 
     const handleSubmitSearch = async (e) =>{
         e.preventDefault();
@@ -13,11 +14,11 @@ function Search(){
         }
 
         try {
-            const response = await fetch(`http:localhost:3001/items?search=${search}`);
-            const data = response.json;
+            const response = await fetch(`http://localhost:3001/items?search=${search}`);
+            const data = await response.json();
 
             if (response.ok){
-                
+                setProducts(data);
             }
         } catch (error) {
             
