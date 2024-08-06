@@ -1,6 +1,6 @@
 .form-search{
     margin: 10px;
-    text-align: center;
+    text-align: center !important;
     position: absolute;
     top: 50%;
     left: 50%;

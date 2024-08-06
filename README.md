@@ -88,3 +88,9 @@ Si pasas a la siguiente fase, te pediremos que hagas una entrevista con nosotros
 - Haremos cambios en el JSON y tendrás que adaptar el código en vivo.
 
 Buena suerte y ¡diviértete programando!
+
+
+
+NOTAS:
+CAJA DE BUSQUEDA HACERLA GLOBAL PARA PODER ACCEDER DESDE OTROS COMPONENTES SIN PASARLO POR PROP
+DETALLES DE PRODUCTOS

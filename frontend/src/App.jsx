@@ -1,5 +1,5 @@
 import Products from "./components/Products";
-import Search from "./components/Search";
+import Home from "./components/Home";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 
 function App() {
@@ -7,7 +7,7 @@ function App() {
         <>
             <BrowserRouter>
                 <Routes>
-                    <Route path="/" element = {<Search/>}/>
+                    <Route path="/" element = {<Home/>}/>
                     <Route path="/items" element = {<Products/>}/>
                 </Routes>
             </BrowserRouter>

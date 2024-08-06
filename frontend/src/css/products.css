@@ -1,11 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 30px;
+    left: 50%;
+}
+
+header img{
+    width: 50px;
+    height: 50px;
+}
+
 ul{
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
-img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
+li:hover{
+    cursor: pointer;
 }
+
+.products-grid img{
+    width: 80%;
+    height: 50%;
+}
+
+.card{
+    margin: 10px;
+    align-items: center;
+    
+}
+
+.products-grid{
+    display: grid;
+    justify-content: center;
+    grid-template-columns: 100px auto auto;
+    grid-template-rows: auto 1fr;
+    grid-template-areas:
+        "img title title"
+        "img description description"
+        "img price rating"
+    ;
+}
+
+
+.products-img-grid{
+    grid-area: img;
+    align-self: center;
+}
+
+.products-title-grid{
+    grid-area: title;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    width: 200px
+}
+
+.products-description-grid{
+    font-family: "Roboto Condensed", sans-serif;
+    grid-area: description;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;       /* Número máximo de líneas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;           /* Oculta el texto que excede el ancho del contenedor */
+    text-overflow: ellipsis;    /* Agrega puntos suspensivos (...) al final del texto truncado */
+    width: 200px;                /* Ajusta el ancho según tus necesidades */
+    text-align: justify;
+}
+
+.products-price-grid{
+    grid-area: price;
+}
+
+.products-rating-grid{
+    grid-area: rating;
+}
+
+.rating-stars {
+    display: inline-block;
+    font-size: 1.2em; /* Ajusta el tamaño de las estrellas según sea necesario */
+    color: #ccc; /* Color de las estrellas vacías */
+}
+
+.rating-stars::before {
+    content: '★★★★★'; /* Cinco estrellas */
+    color: gold; /* Color de las estrellas llenas */
+    overflow: hidden;
+    white-space: nowrap;
+    display: inline-block;
+    width: calc(var(--rating) * 1em); /* La longitud de las estrellas llenas según la calificación */
+}
+
