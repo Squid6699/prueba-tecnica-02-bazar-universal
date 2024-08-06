@@ -7,20 +7,16 @@ const app = express();
 app.use(cors());
 app.use(express.json()); //MIDDLEWARE
 
-mongoose.connect('mongodb://127.0.0.1:27017/products');
+mongoose.connect('mongodb://127.0.0.1:27017/Products');
 
 const productsSchema = mongoose.Schema({
     id: Number,
     title: String,
-    description: String,
     price: Number,
-    discountPercentage: Number,
-    rating: Number,
-    stock: Number,
-    brand: String,
+    description: String,
     category: String,
-    thumbnail: String,
-    images: Array,
+    image: String,
+    rating: Object
 })
 
 const ProductsModel = mongoose.model("products", productsSchema);
