@@ -61,6 +61,7 @@ function Item(){
                         </div>
                     ))}
                 </ul>
+                <button className='cart-btn' type="button">AGREGAR AL CARRITO</button>
             </main>
         </>
     );

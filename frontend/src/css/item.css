@@ -58,3 +58,7 @@ header{
 .item-rating-grid{
     grid-area: rating;
 }
+
+.cart-btn{
+    position: fixed;
+}
