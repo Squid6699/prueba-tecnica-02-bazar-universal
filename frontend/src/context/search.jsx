@@ -9,7 +9,7 @@ export function SearchProvider({children}){
     const navigate = useNavigate();
 
 
-    const handleSubmitSearch = async (e) =>{
+    const handleSubmitSearch = (e) =>{
         e.preventDefault();
 
         if (!search){

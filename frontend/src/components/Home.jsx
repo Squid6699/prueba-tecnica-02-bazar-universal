@@ -11,7 +11,7 @@ function Home(){
     return(
         <>
             <form onSubmit={handleSubmitSearch} className='form-search'>
-                <img src={store} alt="" style={{height: "100px", width: "100px"}}/>
+                <img src={store} alt=""/>
                 <h2>BAZAR ONLINE</h2>
                 <div className='search'>
                     <Search/>

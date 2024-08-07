@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-left: 30px;
+    left: 50%;
+}
+
+.item-grid img{
+    width: 250px;
+    height: 200px;
+}
+
+.item-grid{
+    display: grid;
+    justify-items: center;
+    text-align: justify;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 30px 20px auto;
+    grid-template-areas:
+        "img img "
+        "title title"
+        "price rating"
+        "count ."
+        "description description"
+    ;
+    max-width: 800px;
+    margin: 20px auto;
+}
+
+.item-img-grid{
+    grid-area: img;
+    align-self: center;
+}
+
+.item-title-grid{
+    grid-area: title;
+    text-align: center;
+    margin: 40px;
+}
+
+.item-description-grid{
+    font-family: "Roboto Condensed", sans-serif;
+    grid-area: description;
+    margin: 40px;
+}
+
+.item-price-grid{
+    grid-area: price;
+}
+
+.item-count-grid{
+    grid-area: count;
+}
+
+.item-rating-grid{
+    grid-area: rating;
+}

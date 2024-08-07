@@ -6,6 +6,12 @@ header{
     margin-top: 10px;
     margin-left: 30px;
     left: 50%;
+    min-width: 1336px;
+}
+
+section{
+    text-align: center;
+    min-width: 1336px;
 }
 
 header img{
@@ -19,21 +25,61 @@ ul{
     list-style: none;
 }
 
+.grid{
+    display: grid;
+    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    padding: 0;
+    margin: 0;
+    min-width: 1336px;
+}
+
 .products-grid img{
-    width: 80%;
+    width: 90%;
     height: 50%;
 }
 
 .products-grid{
     display: grid;
     justify-content: center;
-    grid-template-columns: 100px auto auto;
+    grid-template-columns: 120px auto auto;
     grid-template-rows: auto 1fr;
     grid-template-areas:
         "img title title"
         "img description description"
         "img price rating"
     ;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+@media(width < 1000px){
+    .grid{
+        grid-template-columns: repeat(2, minmax(150px, 1fr));
+        min-width: 650px;
+    }
+
+    header{
+        min-width: 650px;
+    }
+    
+    section{
+        min-width: 650px;
+    }
+}
+
+@media(width < 650px){
+    .grid{
+        grid-template-columns: auto;
+        min-width: 300px;
+    }
+
+    header{
+        min-width: 300px;
+    }
+    
+    section{
+        min-width: 300px;
+    }
 }
 
 
