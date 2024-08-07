@@ -23,7 +23,12 @@ function Products() {
 
     const SearchFetch = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/items?search=${searchQuery}`);
+            const response = await fetch(`http://localhost:3001/items?search=${searchQuery}`, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                method: "POST"
+            })
             const data = await response.json();
 
             if (response.ok) {
@@ -72,8 +77,6 @@ function Products() {
                 }
             </ul>
         </>
-
-
     );
 }
 

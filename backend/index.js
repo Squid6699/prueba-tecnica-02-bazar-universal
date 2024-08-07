@@ -21,7 +21,7 @@ const productsSchema = mongoose.Schema({
 
 const ProductsModel = mongoose.model("products", productsSchema);
 
-app.get("/items", async (req, res) => {
+app.post("/items", async (req, res) => {
     try {
         const { search } = req.query;
 
