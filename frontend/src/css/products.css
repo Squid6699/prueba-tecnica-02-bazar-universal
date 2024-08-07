@@ -19,19 +19,9 @@ ul{
     list-style: none;
 }
 
-li:hover{
-    cursor: pointer;
-}
-
 .products-grid img{
     width: 80%;
     height: 50%;
-}
-
-.card{
-    margin: 10px;
-    align-items: center;
-    
 }
 
 .products-grid{
@@ -50,6 +40,7 @@ li:hover{
 .products-img-grid{
     grid-area: img;
     align-self: center;
+    cursor: pointer;
 }
 
 .products-title-grid{
@@ -59,7 +50,8 @@ li:hover{
     overflow: hidden;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
-    width: 200px
+    width: 200px;
+    cursor: pointer;
 }
 
 .products-description-grid{
@@ -72,6 +64,7 @@ li:hover{
     text-overflow: ellipsis;    /* Agrega puntos suspensivos (...) al final del texto truncado */
     width: 200px;                /* Ajusta el ancho según tus necesidades */
     text-align: justify;
+    cursor: pointer;
 }
 
 .products-price-grid{
