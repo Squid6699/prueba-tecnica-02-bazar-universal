@@ -39,6 +39,24 @@ app.post("/items", async (req, res) => {
     } catch (e) {}
 })
 
+app.post("/items/:id", async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!id){
+            return res.status(404).json("SIN PRODUCTOS DISPONIBLES")
+        }
+
+        const itemId = await ProductsModel.find({ id: id });
+
+        if (itemId.length === 0) {
+            res.json([]);
+        }
+
+        res.json(itemId);
+    } catch (e) {}
+})
+
 app.get("/api/items", async (req, res) => {
     try {
         const { q } = req.query;  // Obtener el parámetro de consulta 'q'
