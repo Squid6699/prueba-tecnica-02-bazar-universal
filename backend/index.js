@@ -32,7 +32,7 @@ app.get("/items", async (req, res) => {
         const productTitle = await ProductsModel.find({ title: new RegExp(search, 'i') });
 
         if (productTitle.length === 0) {
-            return res.status(404).json("SIN PRODUCTOS DISPONIBLES");
+            res.json([]);
         }
 
         res.json(productTitle);

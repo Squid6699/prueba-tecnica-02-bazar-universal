@@ -1,10 +1,12 @@
 import React from 'react'
+import { useSearch } from '../hooks/useSearch';
 
-function Search({search, handleSearch}){
+function Search(){
+    const {search, setSearch} = useSearch();
 
     return(
         <>
-            <input type="text" placeholder='Laptos, Smartphones, ...' value={search} onChange={(e) => handleSearch(e.target.value)} />
+            <input type="text" placeholder='Laptos, Smartphones, ...' value={search} onChange={(e) => setSearch(e.target.value)} />
         </>
     );
 }
