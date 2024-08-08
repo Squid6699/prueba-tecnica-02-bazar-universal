@@ -3,9 +3,7 @@
 header{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-left: 30px;
-    left: 50%;
+    align-items: center;
 }
 
 .item-grid img{
@@ -59,6 +57,9 @@ header{
     grid-area: rating;
 }
 
-.cart-btn{
-    position: fixed;
+.cart-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
 }
