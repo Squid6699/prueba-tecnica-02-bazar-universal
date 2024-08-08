@@ -62,7 +62,7 @@ function Products() {
                 <div className="grid">
                     {products.length !== 0 ?
                         products.map((item) => (
-                            <div key={item.id}>
+                            <div className="grid-card" key={item.id}>
                                 <li className="products-grid" onClick={() => hadnleItemSelected(item.id)}>
                                     <img src={item.image} alt={item.title} className="products-img-grid" />
                                     <h2 className="products-title-grid">{item.title}</h2>

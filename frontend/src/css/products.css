@@ -3,15 +3,13 @@
 header{
     display: flex;
     justify-content: center;
-    margin-top: 10px;
-    margin-left: 30px;
-    left: 50%;
-    min-width: 1336px;
+    align-items: center;
 }
 
 section{
-    text-align: center;
-    min-width: 1336px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 header img{
@@ -27,10 +25,15 @@ ul{
 
 .grid{
     display: grid;
-    grid-template-columns: repeat(4, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     padding: 0;
     margin: 0;
-    min-width: 1336px;
+}
+
+.grid-card{
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+
 }
 
 .products-grid img{
@@ -41,7 +44,7 @@ ul{
 .products-grid{
     display: grid;
     justify-content: center;
-    grid-template-columns: 120px auto auto;
+    grid-template-columns: auto auto auto;
     grid-template-rows: auto 1fr;
     grid-template-areas:
         "img title title"
@@ -49,39 +52,9 @@ ul{
         "img price rating"
     ;
     max-width: 300px;
+    height: 300px;
     margin: 0 auto;
 }
-
-@media(width < 1000px){
-    .grid{
-        grid-template-columns: repeat(2, minmax(150px, 1fr));
-        min-width: 650px;
-    }
-
-    header{
-        min-width: 650px;
-    }
-    
-    section{
-        min-width: 650px;
-    }
-}
-
-@media(width < 650px){
-    .grid{
-        grid-template-columns: auto;
-        min-width: 300px;
-    }
-
-    header{
-        min-width: 300px;
-    }
-    
-    section{
-        min-width: 300px;
-    }
-}
-
 
 .products-img-grid{
     grid-area: img;
@@ -92,7 +65,7 @@ ul{
 .products-title-grid{
     grid-area: title;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
