@@ -3,17 +3,21 @@ import Home from "./components/Home";
 import Items from "./components/Item";
 import { BrowserRouter, Routes, Route} from "react-router-dom";
 import { SearchProvider } from "./context/search";
+import { CartProvider } from "./context/cart";
+
 
 function App() {
     return(
         <>
             <BrowserRouter>
                 <SearchProvider>
-                    <Routes>
-                        <Route path="/" element = {<Home/>}/>
-                        <Route path="/items" element = {<Products/>}/>
-                        <Route path="/items/:id" element = {<Items/>}/>
-                    </Routes>
+                    <CartProvider>
+                        <Routes>
+                            <Route path="/" element = {<Home/>}/>
+                            <Route path="/items" element = {<Products/>}/>
+                            <Route path="/items/:id" element = {<Items/>}/>
+                        </Routes>
+                    </CartProvider>
                 </SearchProvider>
             </BrowserRouter>
         </>

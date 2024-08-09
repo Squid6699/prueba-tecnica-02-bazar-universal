@@ -3,11 +3,12 @@ import './../css/item.css'
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import addCart from "../assets/add-cart.svg";
+import { useCart } from "../hooks/useCart";
 
 function Item() {
     const { id } = useParams();
     const [item, setItem] = useState([]);
-    
+    const {setCart} = useCart();
 
     useEffect(() => {
         itemFetch(id);
