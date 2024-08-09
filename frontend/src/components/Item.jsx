@@ -53,7 +53,7 @@ function Item() {
                                 <h2 className="item-title-grid">{item.title}</h2>
                                 <p className="item-description-grid">{item.description}</p>
                                 <strong className="item-price-grid">{item.price}$</strong>
-                                <strong className="item-count-grid">{item.rating} disponibles</strong>
+                                <strong className="item-count-grid">{item.count} disponibles</strong>
                                 <div className="products-rating-grid">
                                     <div className="rating-stars" style={{ '--rating': item.rate }}></div>
                                 </div>
