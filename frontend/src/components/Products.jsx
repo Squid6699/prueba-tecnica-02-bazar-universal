@@ -1,16 +1,15 @@
 import "../css/products.css"
 import React, { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import Search from './Search';
-import store from "../assets/store.svg"
+import { useLocation, useNavigate } from 'react-router-dom';
 import { useSearch } from "../hooks/useSearch";
+import Header from "./Header";
 
 
 function Products() {
     const [products, setProducts] = useState([]);
     const navigate = useNavigate();
 
-    const {setSearch, handleSubmitSearch} = useSearch();
+    const {setSearch} = useSearch();
     const location = useLocation();
     const query = new URLSearchParams(location.search);
     const searchQuery = query.get('search');
@@ -27,12 +26,7 @@ function Products() {
 
     const SearchFetch = async () => {
         try {
-            const response = await fetch(`http://localhost:3001/items?search=${searchQuery}`, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: "POST"
-            })
+            const response = await fetch(`http://localhost:3001/items?search=${searchQuery}`)
             const data = await response.json();
 
             if (response.ok) {
@@ -46,14 +40,8 @@ function Products() {
 
     return (
         <>
-            <header>
-                <Link to= "/">
-                    <img src={store} />
-                </Link>
-                <form onSubmit={handleSubmitSearch}>
-                    <Search />
-                </form>
-            </header>
+            <Header/>
+
             <section>
                 <h3>Resultados de la busqueda de "{searchQuery}": {products.length}</h3>
             </section>

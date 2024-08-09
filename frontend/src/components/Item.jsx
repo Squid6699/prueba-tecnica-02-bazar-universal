@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from 'react'
 import './../css/item.css'
-import { Link, useParams } from 'react-router-dom';
-import store from "../assets/store.svg"
-import { useSearch } from '../hooks/useSearch';
-import Search from './Search';
+import { useParams } from 'react-router-dom';
+import Header from './Header';
 
 
 function Item() {
     const { id } = useParams();
     const [item, setItem] = useState([]);
-    const { handleSubmitSearch } = useSearch();
+    
 
     useEffect(() => {
         itemFetch(id);
@@ -17,12 +15,7 @@ function Item() {
 
     const itemFetch = async (id) => {
         try {
-            const response = await fetch(`http://localhost:3001/items/${id}`, {
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                method: "POST"
-            })
+            const response = await fetch(`http://localhost:3001/items/${id}`)
 
             const data = await response.json();
 
@@ -35,14 +28,7 @@ function Item() {
 
     return (
         <>
-            <header>
-                <Link to="/">
-                    <img src={store} />
-                </Link>
-                <form onSubmit={handleSubmitSearch}>
-                    <Search />
-                </form>
-            </header>
+            <Header/>
 
             <main>
                 <ul>

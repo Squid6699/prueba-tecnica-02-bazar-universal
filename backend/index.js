@@ -21,7 +21,7 @@ const productsSchema = mongoose.Schema({
 
 const ProductsModel = mongoose.model("products", productsSchema);
 
-app.post("/items", async (req, res) => {
+app.get("/items", async (req, res) => {
     try {
         const { search } = req.query;
 
@@ -39,7 +39,7 @@ app.post("/items", async (req, res) => {
     } catch (e) {}
 })
 
-app.post("/items/:id", async (req, res) => {
+app.get("/items/:id", async (req, res) => {
     try {
         const { id } = req.params;
 
