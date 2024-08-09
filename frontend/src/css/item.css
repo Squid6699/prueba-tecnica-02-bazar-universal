@@ -58,8 +58,13 @@ header{
 }
 
 .cart-btn-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.cart-btn-container img{
+    width: 19px;
+    height: 19px;
 }

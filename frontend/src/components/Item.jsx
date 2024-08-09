@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import './../css/item.css'
 import { useParams } from 'react-router-dom';
 import Header from './Header';
-
+import addCart from "../assets/add-cart.svg";
 
 function Item() {
     const { id } = useParams();
@@ -48,7 +48,7 @@ function Item() {
                     ))}
                 </ul>
                 <div className="cart-btn-container">
-                    <button className='cart-btn' type="button">AGREGAR AL CARRITO</button>
+                    <button type="button"><img src={addCart}/> AGREGAR</button>
                 </div>
             </main>
         </>
