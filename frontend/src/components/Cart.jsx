@@ -31,7 +31,7 @@ function Cart(){
                                     <p className="cart-description-grid">{item.description}</p>
                                     <strong className="cart-price-grid">{item.price}$</strong>
                                     <div className="cart-rating-grid">
-                                        <div className="rating-stars-cart" style={{ '--rating': item.rating.rate }}></div>
+                                        <div className="rating-stars-cart" style={{ '--rating': item.rate }}></div>
                                     </div>
                                 </li>
                             </div>
