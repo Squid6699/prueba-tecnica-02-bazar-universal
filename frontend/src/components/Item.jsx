@@ -15,6 +15,18 @@ function Item() {
         itemFetch(id);
     }, [id]);
 
+    const itemMapped = item?.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        description: item.description,
+        category: item.category,
+        image: item.image,
+        rate: item.rating.rate,
+        count: item.rating.count
+
+    }))
+
     const itemFetch = async (id) => {
         try {
             const response = await fetch(`http://localhost:3001/items/${id}`)
@@ -34,16 +46,16 @@ function Item() {
 
             <main>
                 <ul>
-                    {item.map((item) => (
+                    {itemMapped.map((item) => (
                         <div key={item.id}>
                             <li className="item-grid">
                                 <img src={item.image} alt={item.title} className="item-img-grid" />
                                 <h2 className="item-title-grid">{item.title}</h2>
                                 <p className="item-description-grid">{item.description}</p>
                                 <strong className="item-price-grid">{item.price}$</strong>
-                                <strong className="item-count-grid">{item.rating.count} disponibles</strong>
+                                <strong className="item-count-grid">{item.rating} disponibles</strong>
                                 <div className="products-rating-grid">
-                                    <div className="rating-stars" style={{ '--rating': item.rating.rate }}></div>
+                                    <div className="rating-stars" style={{ '--rating': item.rate }}></div>
                                 </div>
                             </li>
                             <div className="cart-btn-container">

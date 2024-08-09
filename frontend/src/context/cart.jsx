@@ -6,6 +6,18 @@ export function CartProvider({children}){
 
     const [cart, setCart] = useState([]);
 
+    const cartMapped = cart?.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        description: item.description,
+        category: item.category,
+        image: item.image,
+        rate: item.rate,
+        count: item.count
+
+    }))
+
     const removeCart = (product) =>{
         const filter = (prevState => prevState.filter((item) => item.id !== product));
         setCart(filter);
@@ -21,7 +33,7 @@ export function CartProvider({children}){
 
     return(
         <CartContext.Provider value={{
-            cart,
+            cartMapped,
             handleSetCart,
             removeCart,
             isInCart,

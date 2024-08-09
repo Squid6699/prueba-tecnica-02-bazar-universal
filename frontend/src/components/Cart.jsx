@@ -4,7 +4,7 @@ import Header from "../components/Header"
 import { useNavigate } from "react-router-dom";
 
 function Cart(){
-    const {cart} = useCart();
+    const {cartMapped} = useCart();
     const navigate = useNavigate();
 
     const hadnleItemSelected = (id) => {
@@ -17,13 +17,13 @@ function Cart(){
             <Header/>
 
             <section>
-                <h3>Articulos en tu carrito: {cart.length}</h3>
+                <h3>Articulos en tu carrito: {cartMapped.length}</h3>
             </section>
 
             <ul>
                 <div className="grid-cart">
-                    {cart.length > 0 ?
-                        cart.map((item) => (
+                    {cartMapped.length > 0 ?
+                        cartMapped.map((item) => (
                             <div className="grid-card-cart" key={item.id}>
                                 <li className="cart-grid" onClick={() => hadnleItemSelected(item.id)}>
                                     <img src={item.image} alt={item.title} className="cart-img-grid" />

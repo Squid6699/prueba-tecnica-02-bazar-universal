@@ -14,6 +14,18 @@ function Products() {
     const query = new URLSearchParams(location.search);
     const searchQuery = query.get('search');
 
+    const productsMapped = products?.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+        description: item.description,
+        category: item.category,
+        image: item.image,
+        rate: item.rating.rate,
+        count: item.rating.count
+
+    }))
+
     useEffect(() => {
         SearchFetch();
         setSearch(searchQuery);
@@ -48,8 +60,8 @@ function Products() {
 
             <ul>
                 <div className="grid">
-                    {products.length > 0 ?
-                        products.map((item) => (
+                    {productsMapped.length > 0 ?
+                        productsMapped.map((item) => (
                             <div className="grid-card" key={item.id}>
                                 <li className="products-grid" onClick={() => hadnleItemSelected(item.id)}>
                                     <img src={item.image} alt={item.title} className="products-img-grid" />
@@ -57,7 +69,7 @@ function Products() {
                                     <p className="products-description-grid">{item.description}</p>
                                     <strong className="products-price-grid">{item.price}$</strong>
                                     <div className="products-rating-grid">
-                                        <div className="rating-stars" style={{ '--rating': item.rating.rate }}></div>
+                                        <div className="rating-stars" style={{ '--rating': item.rate }}></div>
                                     </div>
                                 </li>
                             </div>
