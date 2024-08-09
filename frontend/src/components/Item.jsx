@@ -3,12 +3,13 @@ import './../css/item.css'
 import { useParams } from 'react-router-dom';
 import Header from './Header';
 import addCart from "../assets/add-cart.svg";
+import removeCartImg from "../assets/remove-cart.svg";
 import { useCart } from "../hooks/useCart";
 
 function Item() {
     const { id } = useParams();
     const [item, setItem] = useState([]);
-    const {setCart} = useCart();
+    const {handleSetCart, isInCart, removeCart} = useCart();
 
     useEffect(() => {
         itemFetch(id);
@@ -45,12 +46,17 @@ function Item() {
                                     <div className="rating-stars" style={{ '--rating': item.rating.rate }}></div>
                                 </div>
                             </li>
+                            <div className="cart-btn-container">
+                                {!isInCart(item.id) ? 
+                                    <button type="button" onClick={() => handleSetCart(item)}><img src={addCart}/> AGREGAR</button>
+                                    :
+                                    <button type="button" onClick={() => removeCart(item.id)}><img src={removeCartImg}/> ELIMINAR</button>
+                                }
+                                
+                            </div>
                         </div>
                     ))}
                 </ul>
-                <div className="cart-btn-container">
-                    <button type="button"><img src={addCart}/> AGREGAR</button>
-                </div>
             </main>
         </>
     );

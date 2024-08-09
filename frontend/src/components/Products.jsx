@@ -48,7 +48,7 @@ function Products() {
 
             <ul>
                 <div className="grid">
-                    {products.length !== 0 ?
+                    {products.length > 0 ?
                         products.map((item) => (
                             <div className="grid-card" key={item.id}>
                                 <li className="products-grid" onClick={() => hadnleItemSelected(item.id)}>

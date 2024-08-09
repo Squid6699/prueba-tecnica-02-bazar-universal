@@ -15,7 +15,9 @@ function Header(){
             <form onSubmit={handleSubmitSearch}>
                 <Search />
             </form>
-            <img src={cart} />
+            <Link to={"/myCart"}>
+                <img src={cart} />
+            </Link>
         </header>
         
     );

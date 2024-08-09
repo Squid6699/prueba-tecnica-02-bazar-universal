@@ -7,7 +7,7 @@ export function CartProvider({children}){
     const [cart, setCart] = useState([]);
 
     const removeCart = (product) =>{
-        const filter = [...cart, cart.filter((item) => item.id !== product.id)];
+        const filter = (prevState => prevState.filter((item) => item.id !== product));
         setCart(filter);
     }
 
@@ -15,11 +15,16 @@ export function CartProvider({children}){
         setCart([...cart, product]);
     }
 
+    const isInCart = (product) =>{
+        return cart.some((item) => item.id === product);
+    }
+
     return(
         <CartContext.Provider value={{
             cart,
             handleSetCart,
             removeCart,
+            isInCart,
         }}>{children}</CartContext.Provider>
     );
 }
