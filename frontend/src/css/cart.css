@@ -33,7 +33,6 @@ ul{
         "img title title"
         "img description description"
         "img price rating"
-        "countLess countItem countMore"
     ;
     max-width: 300px;
     height: 300px;
@@ -99,20 +98,13 @@ ul{
     justify-content: space-around;
 }
 
-.count-more{
-    grid-area: countMore;
-}
-
-.count-less{
-    grid-area: countLess;
-}
-
-.count-item-cart{
-    grid-area: countItem;
-}
-
-.count-item-cart input{
+.counter input[type="number"]{
     text-align: center;
     width: 30px;
     height: 23px;
+}
+
+.counter button img{
+    width: 18px;
+    height: 18px;
 }

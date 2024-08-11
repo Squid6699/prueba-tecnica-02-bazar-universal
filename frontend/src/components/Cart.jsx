@@ -2,9 +2,11 @@ import "../css/cart.css"
 import { useCart } from "../hooks/useCart";
 import Header from "../components/Header"
 import { useNavigate } from "react-router-dom";
+import TotalCart from "./TotalCart";
+import trash from "../assets/trash.svg"
 
 function Cart(){
-    const {cartMapped, count, handleCount} = useCart();
+    const {cartMapped, count, handleCount, removeCart} = useCart();
     const navigate = useNavigate();
 
     const hadnleItemSelected = (id) => {
@@ -35,17 +37,18 @@ function Cart(){
                                 </li>
                                  
                                 <div className="counter">
-                                    <div className="count-less"><button disabled = {count[item.id] === 1} onClick={() => handleCount(count[item.id]-1, item.id)}>-</button></div>
-                                    <div className="count-item-cart"><input type="number" value={count[item.id]} onChange={(e) => handleCount(e.target.value, item.id)}/></div>
-                                    <div className="count-more"><button disabled = {count[item.id] === 99} onClick={() => handleCount(count[item.id]+1, item.id)}>+</button></div>
+                                    <button disabled = {count[item.id] === 1} onClick={() => handleCount(count[item.id]-1, item.id)}>-</button>
+                                    <input type="number" value={count[item.id]} onChange={(e) => handleCount(e.target.value, item.id)}/>
+                                    <button disabled = {count[item.id] === 99} onClick={() => handleCount(count[item.id]+1, item.id)}>+</button>
+                                    <button onClick={() => removeCart(item.id)}><img src={trash} alt="ELIMINAR"/></button>
                                 </div>
-                                
                             </div>
                         ))
                     : <strong className="form-search">CARRITO VACIO</strong>
                     }
                 </div>
             </ul>
+            <TotalCart/>
         </>
     );
 }
