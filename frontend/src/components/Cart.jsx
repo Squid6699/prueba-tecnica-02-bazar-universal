@@ -14,7 +14,7 @@ function Cart(){
 
         
         <>
-            <Header/>
+            <Header spot={"cart"}/>
 
             <section>
                 <h3>Articulos en tu carrito: {cartMapped.length}</h3>

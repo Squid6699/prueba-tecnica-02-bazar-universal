@@ -42,7 +42,7 @@ function Item() {
 
     return (
         <>
-            <Header/>
+            <Header spot={"item"}/>
 
             <main>
                 <ul>

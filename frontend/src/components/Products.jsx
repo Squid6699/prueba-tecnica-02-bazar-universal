@@ -52,7 +52,7 @@ function Products() {
 
     return (
         <>
-            <Header/>
+            <Header spot={"products"}/>
 
             <section>
                 <h3>Resultados de la busqueda de "{searchQuery}": {products.length}</h3>
