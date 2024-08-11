@@ -9,7 +9,7 @@ export function CartProvider({children}){
 
     useEffect(() => {
         const initialCount = cart.reduce((acc, item) => {
-            acc[item.id] =  1;
+            acc[item.id] =  1 || count[item.id];
             return acc;
         }, {});
         setCount(initialCount);
