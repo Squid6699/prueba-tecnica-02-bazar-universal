@@ -33,6 +33,7 @@ ul{
         "img title title"
         "img description description"
         "img price rating"
+        "countLess countItem countMore"
     ;
     max-width: 300px;
     height: 300px;
@@ -92,3 +93,26 @@ ul{
     width: calc(var(--rating) * 1em); /* La longitud de las estrellas llenas según la calificación */
 }
 
+.counter{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.count-more{
+    grid-area: countMore;
+}
+
+.count-less{
+    grid-area: countLess;
+}
+
+.count-item-cart{
+    grid-area: countItem;
+}
+
+.count-item-cart input{
+    text-align: center;
+    width: 30px;
+    height: 23px;
+}
