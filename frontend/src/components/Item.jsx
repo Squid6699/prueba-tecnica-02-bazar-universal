@@ -60,9 +60,9 @@ function Item() {
                             </li>
                             <div className="cart-btn-container">
                                 {!isInCart(item.id) ? 
-                                    <button type="button" onClick={() => handleSetCart(item)}><img src={addCart}/> AGREGAR</button>
+                                    <button type="button" onClick={() => handleSetCart(item)}><img src={addCart} alt='AGREGAR AL CARRITO'/> AGREGAR</button>
                                     :
-                                    <button type="button" onClick={() => removeCart(item.id)}><img src={removeCartImg}/> ELIMINAR</button>
+                                    <button type="button" onClick={() => removeCart(item.id)}><img src={removeCartImg} alt='ELIMINAR DEL CARRITO'/> ELIMINAR</button>
                                 }
                                 
                             </div>

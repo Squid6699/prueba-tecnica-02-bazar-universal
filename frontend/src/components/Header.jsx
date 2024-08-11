@@ -11,15 +11,15 @@ function Header({spot}){
     const { handleSubmitSearch } = useSearch();
     return(
         <header>
-            {spot === "products" && <Link to="/"><img src={store}/></Link>}
-            {spot === "item" && <Link to={-1}><img src={leftArrow}/></Link>}
+            {spot === "products" && <Link to="/"><img src={store} alt='INICIO'/></Link>}
+            {spot === "item" && <Link to={-1}><img src={leftArrow} alt='ATRAS'/></Link>}
 
-            {spot === "cart" && <Link to={-1}><img src={leftArrow}/></Link>}
+            {spot === "cart" && <Link to={-1}><img src={leftArrow} alt='ATRAS'/></Link>}
             
             <form onSubmit={handleSubmitSearch}>
                 <Search />
             </form>
-            {spot === "cart" ? <Link to="/"><img src={store} /></Link> : <Link to={"/myCart"}><img src={cart} /></Link>}
+            {spot === "cart" ? <Link to="/"><img src={store} alt='INCIO'/></Link> : <Link to={"/myCart"}><img src={cart} alt='CARRITO'/></Link>}
         </header>
         
     );
