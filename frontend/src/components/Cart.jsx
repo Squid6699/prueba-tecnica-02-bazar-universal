@@ -2,16 +2,15 @@ import "../css/cart.css"
 import { useCart } from "../hooks/useCart";
 import Header from "../components/Header"
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 
 function Cart(){
-    const {cartMapped} = useCart();
+    const {cartMapped, count, handleCount} = useCart();
     const navigate = useNavigate();
-    const [count, setCount] = useState(1);
 
     const hadnleItemSelected = (id) => {
         navigate(`/items/${id}`);
     }
+
     return(
         <>
             <Header spot={"cart"}/>
@@ -36,9 +35,9 @@ function Cart(){
                                 </li>
                                  
                                 <div className="counter">
-                                    <div className="count-less"><button>-</button></div>
-                                    <div className="count-item-cart"><input type="number" value={count}/></div>
-                                    <div className="count-more"><button onClick={() => setCount(count+1)}>+</button></div>
+                                    <div className="count-less"><button disabled = {count[item.id] === 1} onClick={() => handleCount(count[item.id]-1, item.id)}>-</button></div>
+                                    <div className="count-item-cart"><input type="number" value={count[item.id]} onChange={(e) => handleCount(e.target.value, item.id)}/></div>
+                                    <div className="count-more"><button disabled = {count[item.id] === 99} onClick={() => handleCount(count[item.id]+1, item.id)}>+</button></div>
                                 </div>
                                 
                             </div>

@@ -1,10 +1,19 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 
 export const CartContext = createContext();
 
 export function CartProvider({children}){
 
     const [cart, setCart] = useState([]);
+    const [count, setCount] = useState();
+
+    useEffect(() => {
+        const initialCount = cart.reduce((acc, item) => {
+            acc[item.id] =  1;
+            return acc;
+        }, {});
+        setCount(initialCount);
+      }, [cart]);
 
     const cartMapped = cart?.map((item) => ({
         id: item.id,
@@ -21,6 +30,12 @@ export function CartProvider({children}){
     const removeCart = (product) =>{
         const filter = (prevState => prevState.filter((item) => item.id !== product));
         setCart(filter);
+
+        setCount((prevCount) => {
+            const { [product]: _, ...newCount } = prevCount;
+            return newCount;
+        });
+      
     }
 
     const handleSetCart = (product) =>{
@@ -31,12 +46,18 @@ export function CartProvider({children}){
         return cart.some((item) => item.id === product);
     }
 
+    const handleCount = (e, id) => {
+        setCount((prevCount) => ({...prevCount, [id]: Math.max(e, 0)}));
+    }
+
     return(
         <CartContext.Provider value={{
             cartMapped,
             handleSetCart,
             removeCart,
             isInCart,
+            count,
+            handleCount
         }}>{children}</CartContext.Provider>
     );
 }
