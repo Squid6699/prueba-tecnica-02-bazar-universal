@@ -5,15 +5,7 @@ export const CartContext = createContext();
 export function CartProvider({children}){
 
     const [cart, setCart] = useState([]);
-    const [count, setCount] = useState();
-
-    useEffect(() => {
-        const initialCount = cart.reduce((acc, item) => {
-            acc[item.id] =  count[item.id] || 1 ;
-            return acc;
-        }, {});
-        setCount(initialCount);
-      }, [cart]);
+    const [count, setCount] = useState(cart.map(item => ({ id: item.id, cantidad: 1 })));
 
     const cartMapped = cart?.map((item) => ({
         id: item.id,
@@ -27,32 +19,56 @@ export function CartProvider({children}){
 
     }))
 
+
+    useEffect(() => {
+        const newCount = cartMapped.map((item) => {
+            const countItem = count.find(c => c.id === item.id);
+            return {
+                id: item.id,
+                cantidad: countItem ? countItem.cantidad : 1,
+            };
+        });
+        setCount(newCount);
+    }, [cart]);
+
+
     const removeCart = (product) =>{
         const filter = (prevState => prevState.filter((item) => item.id !== product));
         setCart(filter);
-
-        setCount((prevCount) => {
-            const { [product]: _, ...newCount } = prevCount;
-            return newCount;
-        });
-      
     }
 
     const handleSetCart = (product) =>{
-        setCart([...cart, product]);
+        setCart([...cartMapped, product]);
     }
 
     const isInCart = (product) =>{
-        return cart.some((item) => item.id === product);
+        return cartMapped.some((item) => item.id === product);
     }
 
-    const handleCount = (e, id) => {
-        setCount((prevCount) => ({...prevCount, [id]: Math.max(e, 0)}));
-    }
+    const handleCount = (id, cantidad) => {
+        if (cantidad > 99){
+            return;
+        }
+        setCount(prevCount => prevCount.map(item =>
+            item.id === id ? { ...item, cantidad } : item
+        ));
+    };
 
     const totalCartPrice = () => {
-        
-        return 100;
+        var total = 0;
+        cartMapped.map((item) => {
+            const countItem = count.find(c => c.id === item.id);
+            total += parseFloat(item.price * countItem.cantidad);
+        })
+        return total.toFixed(2);
+    }
+
+    const cartTotalCount = () => {
+        var total = 0;
+        count.map((item) => (
+            total += parseFloat(item.cantidad)
+        ))
+        return total
     }
 
     return(
@@ -63,7 +79,8 @@ export function CartProvider({children}){
             isInCart,
             count,
             handleCount,
-            totalCartPrice
+            totalCartPrice,
+            cartTotalCount,
         }}>{children}</CartContext.Provider>
     );
 }
