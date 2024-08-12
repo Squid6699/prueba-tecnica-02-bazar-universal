@@ -44,6 +44,7 @@ function Cart(){
                                 </div>
                             </div>
                         ))
+                        
                     : <strong className="form-search">CARRITO VACIO</strong>
                     }
                 </div>

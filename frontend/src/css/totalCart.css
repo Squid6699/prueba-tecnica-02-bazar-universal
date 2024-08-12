@@ -1,7 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap');
+
+
 .container{
+    font-family: "Roboto Condensed", sans-serif;
     position: sticky;
     bottom: 0;
     width: 100%;
-    text-align: center;
-    background-color: brown;
+    background-color: white;
+}
+
+.container .info-cart{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    justify-items: start;
+
+}
+
+.container .info-cart span:nth-child(2n),
+.container .info-cart strong:nth-child(2n) {
+    justify-self: end;
+}
+
+.container .info-cart button {
+    grid-column: 1 / span 2;
+    justify-self: center;
 }

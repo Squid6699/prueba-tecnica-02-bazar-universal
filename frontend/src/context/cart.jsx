@@ -50,6 +50,11 @@ export function CartProvider({children}){
         setCount((prevCount) => ({...prevCount, [id]: Math.max(e, 0)}));
     }
 
+    const totalCartPrice = () => {
+        
+        return 100;
+    }
+
     return(
         <CartContext.Provider value={{
             cartMapped,
@@ -57,7 +62,8 @@ export function CartProvider({children}){
             removeCart,
             isInCart,
             count,
-            handleCount
+            handleCount,
+            totalCartPrice
         }}>{children}</CartContext.Provider>
     );
 }
