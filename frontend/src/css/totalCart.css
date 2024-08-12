@@ -2,17 +2,19 @@
 
 
 .container{
+    display: flex;
     font-family: "Roboto Condensed", sans-serif;
     position: sticky;
     bottom: 0;
-    width: 100%;
     background-color: white;
+    justify-content: center;
+    border-top: 1px solid black;
 }
 
 .container .info-cart{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    width: 100%;
+    min-width: 25%;
     justify-items: start;
 
 }
